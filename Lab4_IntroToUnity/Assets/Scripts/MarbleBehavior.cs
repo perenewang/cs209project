@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MarbleBehavior : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float rotateSpeed = 15f;
+    public float moveSpeed = 10f;
+    public float rotateSpeed = 25f;
+    public float jumpVelocity = 5f;
 
     private float fbInput;
     private float lrInput;
@@ -24,7 +25,11 @@ public class MarbleBehavior : MonoBehaviour
         // Put code is for movement using the Sprite's native variables here
         fbInput = Input.GetAxis("Vertical") * moveSpeed;
         lrInput = Input.GetAxis("Horizontal") * rotateSpeed;
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            _rb.AddForce(Vector3.up * jumpVelocity,
+                    ForceMode.Impulse);
+        }
         /*this.transform.Translate(Vector3.forward * fbInput * Time.deltaTime);
         this.transform.Rotate(Vector3.up * lrInput * Time.deltaTime);*/
     }
