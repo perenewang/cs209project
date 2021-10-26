@@ -1,0 +1,3 @@
+The extra credit feature that we implemented was a particlce effect for Goal2.
+We used the particle effect implementation explained in the textbook and applied it to Goal2.
+
