@@ -817,6 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e460ad73a38b408b81374084ef9293b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   moveSpeed: 5
   rotateSpeed: 15
   jumpVelocity: 5
@@ -827,6 +828,11 @@ MonoBehaviour:
   blast: {fileID: 6635461683749494208, guid: e2747638ee11b49fb9f168083dc03e5a, type: 3}
   blastSpeed: 100
   gameManager: {fileID: 0}
+=======
+  moveSpeed: 10
+  rotateSpeed: 25
+  jumpVelocity: 5
+>>>>>>> cc8c70b16a69ae10ae513c752cacf7d208d7f31c
 --- !u!23 &768545878
 MeshRenderer:
   m_ObjectHideFlags: 0
