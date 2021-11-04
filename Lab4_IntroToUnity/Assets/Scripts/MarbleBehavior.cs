@@ -7,15 +7,31 @@ public class MarbleBehavior : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotateSpeed = 15f;
 
+    public float jumpVelocity = 5f;
+
+    public float distanceToGround = 0.1f;
+
+    public LayerMask groundLayer;
+
+    public GameObject blast;
+    public float blastSpeed = 100f;
+
     private float fbInput;
     private float lrInput;
 
     private Rigidbody _rb;
 
+    private SphereCollider _col;
+
+    public GameBehavior gameManager;
+    
+
     void Start()
     {
         //You'll need to add a rigidbody to the marble first
         _rb = GetComponent<Rigidbody>();
+        _col = GetComponent<SphereCollider>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
     }
 
     // Update is called once per frame
@@ -38,6 +54,47 @@ public class MarbleBehavior : MonoBehaviour
         _rb.MovePosition(this.transform.position +
           this.transform.forward * fbInput * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation * angleRot);
+ 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.LogFormat("Space bar pressed");
+
+            if(IsGrounded()){
+                 _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+                }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject newBlast = Instantiate(blast,
+                this.transform.position + new Vector3(1, 0, 0),
+                    this.transform.rotation) as GameObject;
+        
+            Rigidbody blastRB = newBlast.GetComponent<Rigidbody>();
+        
+            blastRB.velocity = this.transform.forward *
+            blastSpeed;
+            }
     }
 
+    private bool IsGrounded()
+    {
+        bool grounded = Physics.CheckSphere(this.transform.position,
+             distanceToGround+0.5f, groundLayer,
+                QueryTriggerInteraction.Ignore);
+
+        return grounded;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+       //Put collision code here
+       if (collision.gameObject.name == "Obstacle")
+       {
+         gameManager.Health -= 1;
+       }
+    }
+        
+
 }
+

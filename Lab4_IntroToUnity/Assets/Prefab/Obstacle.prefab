@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5926534917857071850}
   - component: {fileID: 5926534917857071851}
   - component: {fileID: -5074835594210545824}
+  - component: {fileID: -4656279274860841630}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -110,3 +111,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4656279274860841630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926534917857071861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af38566bd0304412aaa11d3d7e82c97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
