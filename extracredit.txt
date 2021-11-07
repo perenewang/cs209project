@@ -1,3 +1,4 @@
-The extra credit feature that we implemented was a particlce effect for Goal2.
-We used the particle effect implementation explained in the textbook and applied it to Goal2.
+The extra credit feature that we implemented was a Health PowerUp.
+We created an Empty Object and a new Material named PowerUp.
+When the Marble collides with this object, the PowerUp disappears and the Marble retains 1 Health. 
 
